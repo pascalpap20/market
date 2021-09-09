@@ -1,0 +1,29 @@
+{
+  "name": "market-service",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "3d-react-carousal": "^4.0.2",
+    "next": "11.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-spring": "^9.2.4",
+    "react-spring-3d-carousel": "^1.2.1",
+    "react-spring-3d-carousel-2": "^1.0.1",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.2",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.7"
+  }
+}
