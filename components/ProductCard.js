@@ -35,7 +35,7 @@ const ProductCard = ({ product, handleAddToCart, dropFromCart }) => {
     return (
             <div className="overflow-hidden shadow-lg rounded-lg h-auto w-80 md:w-80 p-4 bg-secondary m-1">
                 <div href="#" className="w-full block h-full">
-                    <Image src={gambar}/>
+                    <Image src={gambar} width="300" height="200"/>
                     <div className="w-full">
                         <h3>{nama}</h3>
                         <p className="text-indigo-500 text-md font-medium break-all">

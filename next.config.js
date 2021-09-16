@@ -5,6 +5,7 @@ module.exports = {
     globalObject: 'this',
   },
   env: {
-    NO_TELP: '6281319174432'
+    NO_TELP: '6212345678910',
+    DEVELOPMENT_URL: 'http://localhost:3000/api/hello'
   }
 }

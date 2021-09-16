@@ -1,42 +1,9 @@
 import { useEffect, useState } from 'react'
+import Head from 'next/head'
 import ProductCard from '../components/ProductCard'
 import StickyButton from '../components/StickyButton'
-import gambar1 from '../image/1.jpg'
-import gambar2 from '../image/2.jpg'
-import gambar3 from '../image/3.jpg'
-import gambar4 from '../image/41.jpg'
-import gambar5 from '../image/5.jpg'
 
-const productDetail = [
-    {
-        id: 0,
-        nama: "Product 1ssssssssssssssssssss",
-        gambar: gambar1,
-        deskripsi: "AYYYY"
-    },{
-        id: 1,
-        nama: "Product 2",
-        gambar: gambar2,
-        deskripsi: "31ewqewqdqewqe qweq weqeqweqweqweqweqweqweqeq"
-    },{
-        id: 2,
-        nama: "Product 3",
-        gambar: gambar3,
-        deskripsi: "AYdasYYY"
-    },{
-        id: 3,
-        nama: "Product 4",
-        gambar: gambar4,
-        deskripsi: "AYYYY"
-    },{
-        id: 4,
-        nama: "Product 5",
-        gambar: gambar5,
-        deskripsi: "AYYYYdas dasd asd  SADas das "
-    }
-]
-
-const product = () => {
+const product = ({ data }) => {
     const [addToCart, setAddToCart] = useState([])
 
     const handleAddToCart = (productId, productNama, productAmount, productGambar) => {
@@ -56,13 +23,17 @@ const product = () => {
     }
 
     useEffect(()=>{
-        console.log(addToCart)
+        console.log(data)
     })
 
     return (
         <div className="p-4">
+            <Head>
+                <title>Products</title>
+                <meta name="description" content="Products to sell" />
+            </Head>
             <div className="flex flex-wrap -m-2 justify-center">
-                {productDetail.map(item => (
+                {data.productDetail.map(item => (
                     <div key={item.id}>
                         <ProductCard product={item} handleAddToCart={handleAddToCart} dropFromCart={dropFromCart}/>
                     </div>
@@ -72,5 +43,21 @@ const product = () => {
         </div>
     )
 }
+
+export async function getStaticProps(context) {
+    const res = await fetch(`${process.env.DEVELOPMENT_URL}`)
+    const data = await res.json()
+    
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
+  
+    return {
+      props: { data }, // will be passed to the page component as props
+    }
+  }
+
 
 export default product;
