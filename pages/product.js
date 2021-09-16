@@ -3,36 +3,36 @@ import Head from 'next/head'
 import ProductCard from '../components/ProductCard'
 import StickyButton from '../components/StickyButton'
 
-const productDetail = [
-    {
-        id: 0,
-        nama: "Product 1ssssssssssssssssssss",
-        gambar: "/image/1.jpg",
-        deskripsi: "AYYYY"
-    },{
-        id: 1,
-        nama: "Product 2",
-        gambar: "/image/2.jpg",
-        deskripsi: "31ewqewqdqewqe qweq weqeqweqweqweqweqweqweqeq"
-    },{
-        id: 2,
-        nama: "Product 3",
-        gambar: "/image/3.jpg",
-        deskripsi: "AYdasYYY"
-    },{
-        id: 3,
-        nama: "Product 4",
-        gambar: "/image/41.jpg",
-        deskripsi: "AYYYY"
-    },{
-        id: 4,
-        nama: "Product 5",
-        gambar: "/image/5.jpg",
-        deskripsi: "AYYYYdas dasd asd  SADas das "
-    }
-  ]
+// const productDetail = [
+//     {
+//         id: 0,
+//         nama: "Product 1ssssssssssssssssssss",
+//         gambar: "/image/1.jpg",
+//         deskripsi: "AYYYY"
+//     },{
+//         id: 1,
+//         nama: "Product 2",
+//         gambar: "/image/2.jpg",
+//         deskripsi: "31ewqewqdqewqe qweq weqeqweqweqweqweqweqweqeq"
+//     },{
+//         id: 2,
+//         nama: "Product 3",
+//         gambar: "/image/3.jpg",
+//         deskripsi: "AYdasYYY"
+//     },{
+//         id: 3,
+//         nama: "Product 4",
+//         gambar: "/image/41.jpg",
+//         deskripsi: "AYYYY"
+//     },{
+//         id: 4,
+//         nama: "Product 5",
+//         gambar: "/image/5.jpg",
+//         deskripsi: "AYYYYdas dasd asd  SADas das "
+//     }
+//   ]
 
-const Product = ({  }) => {
+const Product = ({ data }) => {
     const [addToCart, setAddToCart] = useState([])
 
     const handleAddToCart = (productId, productNama, productAmount, productGambar) => {
@@ -58,7 +58,7 @@ const Product = ({  }) => {
                 <meta name="description" content="Products to sell" />
             </Head>
             <div className="flex flex-wrap -m-2 justify-center">
-                {productDetail.map(item => (
+                {data.productDetail.map(item => (
                     <div key={item.id}>
                         <ProductCard product={item} handleAddToCart={handleAddToCart} dropFromCart={dropFromCart}/>
                     </div>
@@ -69,20 +69,20 @@ const Product = ({  }) => {
     )
 }
 
-// export async function getStaticProps(context) {
-//     const res = await fetch(`${process.env.DEVELOPMENT_URL}`)
-//     const data = await res.json()
+export async function getStaticProps(context) {
+    const res = await fetch(`${process.env.DEVELOPMENT_URL}`)
+    const data = await res.json()
     
-//     if (!data) {
-//       return {
-//         notFound: true,
-//       }
-//     }
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
   
-//     return {
-//       props: { data }, // will be passed to the page component as props
-//     }
-//   }
+    return {
+      props: { data }, // will be passed to the page component as props
+    }
+  }
 
 
 export default Product;
