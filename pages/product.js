@@ -3,7 +3,7 @@ import Head from 'next/head'
 import ProductCard from '../components/ProductCard'
 import StickyButton from '../components/StickyButton'
 
-const product = ({ data }) => {
+const Product = ({ data }) => {
     const [addToCart, setAddToCart] = useState([])
 
     const handleAddToCart = (productId, productNama, productAmount, productGambar) => {
@@ -60,4 +60,4 @@ export async function getStaticProps(context) {
   }
 
 
-export default product;
+export default Product;

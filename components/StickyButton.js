@@ -46,7 +46,7 @@ const StickyButton = ({ itemInCart }) => {
                         </div> */}
                     </div>
                 </div>)}
-                { itemInCart.length === 0 ? <div className="p-1">No item in cart</div> : <a href={`https://wa.me/${process.env.NO_TELP}?text=${sendMessage}%0D${messageToSend}`} target="_blank" className="p-1 hover:bg-back">Send via WhatsApp</a>}
+                { itemInCart.length === 0 ? <div className="p-1">No item in cart</div> : <a href={`https://wa.me/${process.env.NO_TELP}?text=${sendMessage}%0D${messageToSend}`} target="_blank" rel="noreferrer" className="p-1 hover:bg-back">Send via WhatsApp</a>}
             </div>
             <div className="flex flex-col fixed bottom-0 right-0 mr-8 mb-8 z-10 bg-primary rounded hover:shadow-2xl">
                 <div className="flex p-4">
