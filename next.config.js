@@ -6,6 +6,6 @@ module.exports = {
   },
   env: {
     NO_TELP: '6212345678910',
-    DEVELOPMENT_URL: 'http://localhost:3000/api/hello'
+    DEVELOPMENT_URL: 'https://dreamy-yonath-830d20.netlify.app//api/hello'
   }
 }
